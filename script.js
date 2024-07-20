@@ -1,63 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
     const navLinks = document.querySelectorAll('nav a');
-
-    for (const link of navLinks) {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-
-            targetSection.scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const navLinks = document.querySelectorAll('nav a');
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projects = document.querySelectorAll('.project');
-
-    for (const link of navLinks) {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-
-            targetSection.scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    }
-
-    for (const button of filterButtons) {
-        button.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            filterProjects(filter);
-        });
-    }
-
-    function filterProjects(filter) {
-        for (const project of projects) {
-            if (filter === 'all' || project.getAttribute('data-category') === filter) {
-                project.style.display = 'block';
-            } else {
-                project.style.display = 'none';
-            }
-        }
-    }
-});
-
-// script.js
-
-document.addEventListener("DOMContentLoaded", function() {
-    const navLinks = document.querySelectorAll('nav a');
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projects = document.querySelectorAll('.project');
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
+    const themeToggle = document.getElementById('theme-toggle');
 
+    // Smooth scroll
     for (const link of navLinks) {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -70,23 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    for (const button of filterButtons) {
-        button.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            filterProjects(filter);
-        });
-    }
-
-    function filterProjects(filter) {
-        for (const project of projects) {
-            if (filter === 'all' || project.getAttribute('data-category') === filter) {
-                project.style.display = 'block';
-            } else {
-                project.style.display = 'none';
-            }
-        }
-    }
-
+    // Form submission
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -103,4 +34,26 @@ document.addEventListener("DOMContentLoaded", function() {
             formMessage.style.color = 'red';
         }
     });
+
+    // Dark mode toggle
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.textContent = 'Light Mode';
+        } else {
+            document.body.classList.remove('dark-mode');
+            themeToggle.textContent = 'Dark Mode';
+        }
+    }
+
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
 });

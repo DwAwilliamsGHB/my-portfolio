@@ -1,3 +1,5 @@
+/* Main */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -40,32 +42,7 @@ main {
 }
 
 section {
-    margin-bottom: 40px;
-}
-
-.profile-pic {
-    width: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-.project {
-    margin-bottom: 20px;
-}
-
-.project h3 {
-    margin: 0;
-}
-
-.project a {
-    display: inline-block;
-    margin-right: 10px;
-    text-decoration: none;
-    color: #007BFF;
-}
-
-.project a:hover {
-    text-decoration: underline;
+    margin-bottom: 10px;
 }
 
 footer {
@@ -73,4 +50,301 @@ footer {
     padding: 20px 0;
     background-color: #333;
     color: #fff;
+}
+
+/* Home */
+
+#home {
+    padding: 2em;
+    background-color: #f9f9f9;
+}
+
+#home h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+#home p {
+    padding: 0 4em;
+    font-size: 1.2em;
+    line-height: 1.7;
+}
+
+/* About */
+
+#about {
+    padding: 2em;
+    background-color: #fff;
+}
+
+#about h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+#about p {
+    font-size: 1.2em;
+    line-height: 1.7;
+}
+
+/* Skills */
+
+#skills {
+    padding: 2em;
+    background-color: #fff;
+}
+
+#skills h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+#skills ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#skills li {
+    font-size: 1.2em;
+    line-height: 1.7;
+}
+
+/* Projects */
+
+#projects {
+    padding: 2em;
+    background-color: #fff;
+}
+
+#projects h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1em;
+    margin: 1em;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.project:hover {
+    transform: scale(1.05);
+}
+
+.project h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.project p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+.project a {
+    display: inline-block;
+    margin-right: 0.5em;
+    font-size: 1.2em;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.project a:hover {
+    text-decoration: underline;
+}
+
+/* Experience */
+
+#experience {
+    padding: 2em;
+    background-color: #f9f9f9;
+}
+
+#experience h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.experience-item {
+    margin-bottom: 2em;
+}
+
+.experience-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.experience-item p {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+/* Education */
+
+#education {
+    padding: 2em;
+    background-color: #f9f9f9;
+}
+
+#education h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.education-item {
+    margin-bottom: 2em;
+}
+
+.education-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.education-item p {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+/* Contact */
+
+#contact {
+    padding: 2em;
+    background-color: #f9f9f9;
+}
+
+#contact h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+#contact p {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+#contact a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Me */
+
+#contact-me {
+    padding: 2em;
+    background-color: #fff;
+}
+
+#contact-me h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 1em;
+}
+
+.form-group label {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: none; /* Disable resizing */
+}
+
+#contact-form button {
+    padding: 0.75em;
+    font-size: 1.2em;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1em;
+}
+
+#contact-form button:hover {
+    background-color: #0056b3;
+}
+
+.form-message {
+    font-size: 1.2em;
+    color: red;
+    margin-top: 1em;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    color: #f4f4f4;
+    background-color: #333;
+}
+
+body.dark-mode header {
+    background-color: #222;
+}
+
+body.dark-mode nav ul li a {
+    color: #ddd;
+}
+
+body.dark-mode main {
+    background-color: #444;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode footer {
+    background-color: #222;
+}
+
+body.dark-mode #about,
+body.dark-mode #projects,
+body.dark-mode #skills,
+body.dark-mode #contact-me {
+    background-color: #444;
+}
+
+body.dark-mode #education,
+body.dark-mode #home,
+body.dark-mode #experience,
+body.dark-mode #contact {
+    background-color: #4b4b4b;
+}
+
+body.dark-mode .project {
+    background-color: #666;
+    border: 1px solid #777;
+}
+
+body.dark-mode .project a {
+    color: #66b2ff;
 }
