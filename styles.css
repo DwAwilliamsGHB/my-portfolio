@@ -9,7 +9,7 @@ body {
 }
 
 header {
-    background-color: #e0e0e0;
+    background-color: #ebebeb;
     padding: 20px 0;
     text-align: center;
     max-width: 840px; /* Same width as main content */
@@ -19,6 +19,14 @@ header {
     left: 0;
     right: 0;
     z-index: 1000; /* Ensure it stays above other content */
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #ebebeb;
+    max-width: 840px; /* Same width as main content */
+    margin: 0 auto; /* Center the header */
 }
 
 #theme-toggle {
@@ -62,18 +70,11 @@ main {
     max-width: 800px;
     margin: 0 auto;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 section {
     margin-bottom: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #333;
-    color: #fff;
+    border-radius: 4px;
 }
 
 /* Home */
@@ -143,10 +144,9 @@ footer {
 .skill-item, .special-skill-item {
     display: flex;
     align-items: center;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9;
     padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
     transition: transform 0.2s;
 }
 
@@ -202,12 +202,11 @@ footer {
 
 .project {
     background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    border: 0px;
     border-radius: 4px;
     padding: 1em;
     margin: 1em;
     width: 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
 }
 
@@ -313,8 +312,9 @@ footer {
 }
 
 #contact p {
+    display: flex;
+    align-items: center;
     font-size: 1.2em;
-    margin-bottom: 0.5em;
 }
 
 #contact a {
@@ -322,8 +322,24 @@ footer {
     text-decoration: none;
 }
 
+#contact p a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+#contact p a:hover {
+    text-decoration: underline;
+}
+
 #contact a:hover {
     text-decoration: underline;
+}
+
+#contact svg {
+    width: 45px;
+    height: 45px;
+    margin-right: 8px;
 }
 
 /* Contact Me */
@@ -349,21 +365,34 @@ footer {
 
 .form-group label {
     font-size: 1.2em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.3em;
+    display: block;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
     padding: 0.5em;
-    font-size: 1em;
-    border: 1px solid #ccc;
+    font-size: 1.1em;
     border-radius: 4px;
+    background-color:  #f9f9f9;
+    border: 0px solid transparent;
+    box-sizing: border-box;
+}
+
+input:-webkit-autofill, 
+textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #f9f9f9 inset !important; /* Change #f9f9f9 to your desired background color */
+    box-shadow: 0 0 0 30px #f9f9f9 inset !important; /* Change #f9f9f9 to your desired background color */
+    -webkit-text-fill-color: #333 !important; /* Change #333 to your desired text color */
+    border: 0px solid transparent; /* Adjust border color if needed */
 }
 
 .form-group textarea {
-    height: 150px;
+    height: 200px;
     resize: none; /* Disable resizing */
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
 }
 
 #contact-form button {
@@ -403,7 +432,6 @@ body.dark-mode nav ul li a {
 
 body.dark-mode main {
     background-color: #444;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 body.dark-mode footer {
@@ -425,8 +453,8 @@ body.dark-mode #contact {
 }
 
 body.dark-mode .project {
-    background-color: #666;
-    border: 1px solid #777;
+    background-color: #4b4b4b;
+    border: 0px;
 }
 
 body.dark-mode .project a {
@@ -454,11 +482,24 @@ body.dark-mode .background polygon:nth-child(5) {
 }
 
 body.dark-mode .skills-grid .skill-item {
-    background-color: #333; /* Dark background for skill items */
-    color: #fff; /* Light text color */
+    background-color: #4b4b4b; /* Dark background for skill items */
+    color: #f4f4f4; /* Light text color */
 }
 
 body.dark-mode .skills-grid .skill-item i {
-    color: #fff; /* Light color for icons */
+    color: #f4f4f4; /* Light color for icons */
 }
 
+body.dark-mode #contact-form textarea, 
+body.dark-mode #contact-form input {
+    background-color: #333; /* Dark background for textarea */
+    color: #f4f4f4; /* Light text color for textarea */
+}
+
+body.dark-mode input:-webkit-autofill, 
+body.dark-mode textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #333 inset !important; /* Change #333 to your desired dark mode background color */
+    box-shadow: 0 0 0 30px #333 inset !important; /* Change #333 to your desired dark mode background color */
+    -webkit-text-fill-color: #f4f4f4 !important; /* Change #fff to your desired text color for dark mode */
+    border: 0px solid transparent; /* Adjust border color if needed */
+}

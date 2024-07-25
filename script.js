@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
-            const headerOffset = 80; // Adjust this value to your preferred space
+            const headerOffset = 60; // Adjust this value to your preferred space
             const elementPosition = targetSection.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }, function(error) {
                 formMessage.textContent = 'Failed to send message. Please try again later.';
                 formMessage.style.color = 'red';
+                console.error('EmailJS error:', error); // Log the error for debugging
             });
         } else {
             formMessage.textContent = 'Please fill out all fields.';
