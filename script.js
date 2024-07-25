@@ -4,18 +4,27 @@ document.addEventListener("DOMContentLoaded", function() {
     const formMessage = document.getElementById('form-message');
     const themeToggle = document.getElementById('theme-toggle');
 
-    // Smooth scroll
+    // Smooth scroll with offset
     for (const link of navLinks) {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
+            const headerOffset = 80; // Adjust this value to your preferred space
+            const elementPosition = targetSection.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-            targetSection.scrollIntoView({
+            window.scrollTo({
+                top: offsetPosition,
                 behavior: 'smooth'
             });
         });
     }
+
+    // Initialize EmailJS
+    (function(){
+        emailjs.init("pn9BMS7cihGNWeXTI");
+    })();
 
     // Form submission
     contactForm.addEventListener('submit', function(e) {
@@ -26,9 +35,19 @@ document.addEventListener("DOMContentLoaded", function() {
         const message = document.getElementById('message').value.trim();
 
         if (name && email && message) {
-            formMessage.textContent = 'Thank you for your message!';
-            formMessage.style.color = 'green';
-            contactForm.reset();
+            emailjs.send("service_wn3jri5", "template_pu7xofc", {
+                from_name: name,
+                from_email: email,
+                message: message
+            })
+            .then(function(response) {
+                formMessage.textContent = 'Thank you for your message!';
+                formMessage.style.color = 'green';
+                contactForm.reset();
+            }, function(error) {
+                formMessage.textContent = 'Failed to send message. Please try again later.';
+                formMessage.style.color = 'red';
+            });
         } else {
             formMessage.textContent = 'Please fill out all fields.';
             formMessage.style.color = 'red';
