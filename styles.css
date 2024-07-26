@@ -40,10 +40,26 @@ footer {
     border-radius: 4px;
     cursor: pointer;
     z-index: 1100; /* Ensure it stays above other content, including the header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #theme-toggle:hover {
     background-color: #6d6d6d;
+}
+
+#theme-toggle i {
+    font-size: 20px; /* Adjust icon size as needed */
+}
+
+#theme-toggle .fa-moon {
+    color: #b0c4de; /* Light blue-white color for the moon */
+}
+
+#theme-toggle .fa-sun {
+    color: #ffd700; /* Golden yellow color for the sun */
+    display: none; /* Initially hide the sun icon */
 }
 
 nav ul {

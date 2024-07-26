@@ -55,25 +55,25 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Dark mode toggle
     function setTheme(theme) {
+        const moonIcon = document.querySelector('#theme-toggle .fa-moon');
+        const sunIcon = document.querySelector('#theme-toggle .fa-sun');
+    
         if (theme === 'dark') {
             document.body.classList.add('dark-mode');
-            themeToggle.textContent = 'Light Mode';
+            moonIcon.style.display = 'none';
+            sunIcon.style.display = 'inline';
         } else {
             document.body.classList.remove('dark-mode');
-            themeToggle.textContent = 'Dark Mode';
+            moonIcon.style.display = 'inline';
+            sunIcon.style.display = 'none';
         }
     }
-
+    
     themeToggle.addEventListener('click', function() {
         const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
     });
-
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
 });
