@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
     const themeToggle = document.getElementById('theme-toggle');
+    const colorPicker = document.getElementById('color-picker');
+    const colorPickerContainer = document.getElementById('color-picker-container');
+    const mainElement = document.querySelector('main');
 
     // Smooth scroll with offset
     for (const link of navLinks) {
@@ -10,11 +13,11 @@ document.addEventListener("DOMContentLoaded", function() {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
-            const headerOffset = 60; // Adjust this value to your preferred space
+            const headerOffset = 80; // Adjust this value to your preferred space
             const elementPosition = targetSection.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            const offsetPosition = elementPosition + mainElement.scrollTop - headerOffset;
 
-            window.scrollTo({
+            mainElement.scrollTo({
                 top: offsetPosition,
                 behavior: 'smooth'
             });
@@ -75,5 +78,20 @@ document.addEventListener("DOMContentLoaded", function() {
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
+    });
+
+    // Color Picker functionality
+    colorPicker.addEventListener('input', function() {
+        const selectedColor = this.value;
+        document.body.style.backgroundColor = selectedColor;
+
+        // Dynamically update the hover color to match the selected background color
+        colorPickerContainer.addEventListener('mouseenter', function() {
+            colorPickerContainer.style.backgroundColor = selectedColor;
+        });
+
+        colorPickerContainer.addEventListener('mouseleave', function() {
+            colorPickerContainer.style.backgroundColor = '#00000026';
+        });
     });
 });
