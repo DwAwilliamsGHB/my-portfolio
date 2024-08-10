@@ -95,3 +95,19 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    // Close the menu if clicking outside of it
+    document.addEventListener('click', function(event) {
+        const isClickInsideMenu = navMenu.contains(event.target);
+        const isClickOnToggle = menuToggle.contains(event.target);
+
+        if (!isClickInsideMenu && !isClickOnToggle) {
+            menuToggle.checked = false; // Uncheck the menu toggle checkbox
+        }
+    });
+});
+

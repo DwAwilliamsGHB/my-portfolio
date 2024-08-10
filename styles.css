@@ -698,3 +698,122 @@ input:focus, textarea:focus {
     -ms-appearance: none;     /* For Internet Explorer/Edge */
     appearance: none; 
 }
+
+#menu-toggle {
+    display: none;
+}
+
+.hamburger-icon {
+    display: none;
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    cursor: pointer;
+    padding-top: 5px;
+    background-color: #00000026;
+    border-radius: 4px;
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    z-index: 1100;
+    transition: background-color 0.2s ease;
+    color: #fff;
+}
+
+.hamburger-icon:active {
+    background-color: #cfcfcf;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .hamburger-icon {
+        display: block;
+    }
+
+    /* Adjusting the main content padding */
+    main {
+        margin-top: 120px;
+        padding: 0 5%; /* Reduce padding on small screens */
+    }
+
+    /* Stack navigation links vertically */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 20px;
+        left: 0;
+        right: 0;
+        width: 60%;
+        background-color: #ffffffcb;
+        padding: 20px 0;
+        z-index: 1000;
+        border-radius: 4px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Show the navigation when the checkbox is checked */
+    #menu-toggle:checked + .hamburger-icon + nav ul {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Add vertical spacing between links */
+    }
+
+    nav ul li a {
+        font-size: 18px; /* Slightly larger text */
+    }
+
+    /* Scale down headers */
+    h2 {
+        font-size: 1.5em;
+    }
+
+    #home p {
+        padding:0
+    }
+
+    /* Adjust project container for single column */
+    .project-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project {
+        width: 70%; /* Full width for projects on small screens */
+    }
+
+    .project a {
+        margin-bottom: 10px;
+    }
+
+    /* Adjust the skill grid for a single column */
+    .skills-grid {
+        grid-template-columns: 1fr; /* One column layout */
+    }
+
+    /* Center the footer text */
+    footer {
+        text-align: center;
+    }
+
+    /* Adjust the button sizes */
+    button {
+        font-size: 1em; /* Smaller button text */
+        padding: 0.5em;
+    }
+
+    /* Make the theme and color picker buttons smaller */
+    #theme-toggle, #color-picker-container {
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+    }
+
+    /* Adjust SVG icon sizes in the skill items */
+    .skill-item svg {
+        width: 40px;
+        height: 40px;
+    }
+}
