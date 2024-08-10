@@ -255,7 +255,7 @@ nav ul li a {
     transition: background-color 0.2s ease;
 }
 
-#theme-toggle:hover {
+#theme-toggle:active {
     background-color: #2500c8;
 }
 
@@ -307,7 +307,7 @@ nav ul li a {
     opacity: 0; /* Hide the native color input */
 }
 
-#color-picker-container:hover {
+#color-picker-container:active {
     background-color: #cfcfcf; 
 }
 
@@ -640,7 +640,7 @@ body.dark-mode .background-svg {
     filter: grayscale(40%) brightness(20%) contrast(110%);
 }
 
-body.dark-mode #theme-toggle:hover {
+body.dark-mode #theme-toggle:active {
     background-color: skyblue;
 }
 
@@ -750,6 +750,10 @@ input:focus, textarea:focus {
         z-index: 1000;
         border-radius: 4px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode nav ul {
+        background-color: #191919cb;
     }
 
     /* Show the navigation when the checkbox is checked */

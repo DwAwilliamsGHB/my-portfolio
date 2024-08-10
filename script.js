@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
     const themeToggle = document.getElementById('theme-toggle');
-    const colorPicker = document.getElementById('color-picker');
-    const colorPickerContainer = document.getElementById('color-picker-container');
     const mainElement = document.querySelector('main');
 
     // Smooth scroll with offset
@@ -79,35 +77,14 @@ document.addEventListener("DOMContentLoaded", function() {
         setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
     });
-
-    // Color Picker functionality
-    colorPicker.addEventListener('input', function() {
-        const selectedColor = this.value;
-        document.body.style.backgroundColor = selectedColor;
-
-        // Dynamically update the hover color to match the selected background color
-        colorPickerContainer.addEventListener('mouseenter', function() {
-            colorPickerContainer.style.backgroundColor = selectedColor;
-        });
-
-        colorPickerContainer.addEventListener('mouseleave', function() {
-            colorPickerContainer.style.backgroundColor = '#00000026';
-        });
-    });
 });
 
 document.addEventListener("DOMContentLoaded", function() {
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.querySelector('nav ul');
 
-    // Close the menu if clicking outside of it
-    document.addEventListener('click', function(event) {
-        const isClickInsideMenu = navMenu.contains(event.target);
-        const isClickOnToggle = menuToggle.contains(event.target);
-
-        if (!isClickInsideMenu && !isClickOnToggle) {
-            menuToggle.checked = false; // Uncheck the menu toggle checkbox
-        }
+    // Toggle the menu when the hamburger icon is clicked
+    menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('open');
     });
 });
-
