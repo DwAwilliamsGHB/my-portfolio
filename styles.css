@@ -255,7 +255,7 @@ nav ul li a {
     transition: background-color 0.2s ease;
 }
 
-#theme-toggle:active {
+#theme-toggle:hover {
     background-color: #2500c8;
 }
 
@@ -307,7 +307,7 @@ nav ul li a {
     opacity: 0; /* Hide the native color input */
 }
 
-#color-picker-container:active {
+#color-picker-container:hover {
     background-color: #cfcfcf; 
 }
 
@@ -640,7 +640,7 @@ body.dark-mode .background-svg {
     filter: grayscale(40%) brightness(20%) contrast(110%);
 }
 
-body.dark-mode #theme-toggle:active {
+body.dark-mode #theme-toggle:hover {
     background-color: skyblue;
 }
 
@@ -819,5 +819,23 @@ input:focus, textarea:focus {
     .skill-item svg {
         width: 40px;
         height: 40px;
+    }
+
+    body.dark-mode #theme-toggle:active {
+        background-color: skyblue;
+    }
+
+    #theme-toggle:active {
+        background-color: #2500c8;
+    }
+
+    #color-picker-container:active {
+        background-color: #cfcfcf;
+    }
+
+    body.dark-mode #theme-toggle:hover,
+    #theme-toggle:hover,
+    #color-picker-container:hover {
+        background-color: #00000026;
     }
 }
