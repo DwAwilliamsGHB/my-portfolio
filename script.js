@@ -77,7 +77,23 @@ document.addEventListener("DOMContentLoaded", function() {
         setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
     });
+
+     // Color Picker functionality
+     const colorPicker = document.getElementById('color-picker');
+     const colorPickerContainer = document.getElementById('color-picker-container');
+ 
+     // Update the background color when a new color is picked
+     colorPicker.addEventListener('input', function() {
+         const selectedColor = this.value;
+         document.body.style.backgroundColor = selectedColor;
+ 
+         // Dynamically update the color picker container's background color
+         colorPickerContainer.style.backgroundColor = selectedColor;
+     });
+     
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const menuToggle = document.getElementById('menu-toggle');
